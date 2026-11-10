@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#080a0f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Agent Studio — Universal Client Assistant Platform</title>
+  <link rel="stylesheet" href="/static/agent-desk.css?v=2.2">
+</head>
+<body>
+
+  <!-- Top Bar: Clean, Minimalist & Executive -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <a href="/" class="studio-brand-logo">
+        <div class="brand-icon-box">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="4"></rect>
+            <path d="M7 8h10M7 12h7M7 16h4"></path>
+          </svg>
+        </div>
+        <span class="studio-brand-title">Agent Studio</span>
+      </a>
+      <span class="edition-tag">ENTERPRISE</span>
+    </div>
+
+    <!-- Right: Theme Toggle & Single Embed CTA -->
+    <div class="top-bar-right">
+      <!-- Theme Switcher (Light / Dark Mode) -->
+      <button class="theme-toggle-btn" id="theme-toggle-btn" title="Toggle Light / Dark Mode" aria-label="Toggle Theme">
+        <span class="theme-toggle-icon icon-moon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </span>
+        <span class="theme-toggle-icon icon-sun">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </span>
+        <span class="theme-toggle-label" id="theme-toggle-label">Dark</span>
+      </button>
+
+      <!-- Single Embed CTA -->
+      <button class="top-action-btn primary" id="btn-top-embed" title="Get Website Embed Snippet">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+        <span class="btn-text-desktop">Copy client embed script</span>
+        <span class="btn-text-mobile">Embed</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Segmented Switcher (Visible on screens <= 1024px) -->
+  <nav class="mobile-nav-tabs" id="mobile-nav-tabs" aria-label="Mobile Navigation">
+    <button class="mobile-tab-btn active" data-tab="preview">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      <span>Chat</span>
+    </button>
+    <button class="mobile-tab-btn" data-tab="setup">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+      </svg>
+      <span>Settings</span>
+    </button>
+    <button class="mobile-tab-btn" data-tab="leads">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+        <circle cx="9" cy="7" r="4"></circle>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+      </svg>
+      <span>Leads <span class="mobile-tab-pill-badge" id="mobile-leads-count">0</span></span>
+    </button>
+  </nav>
+
+  <!-- 3-Column Studio Workspace -->
+  <main class="workspace-container" id="workspace-container" data-active-panel="preview">
+
+    <!-- Column 1: AGENCY SETUP -->
+    <aside class="agency-setup-panel" id="agency-setup-panel">
+      <div class="panel-header-wrap">
+        <span class="panel-header-title">CLIENT CONFIGURATION</span>
+        <span class="preset-chip" id="active-preset-badge">Active</span>
+      </div>
+
+      <!-- Example Client Preset -->
+      <div class="form-group">
+        <label class="form-label">
+          <span>Industry template</span>
+          <span class="sub">Select to autofill</span>
+        </label>
+        <select class="form-select" id="client-preset-select">
+          <option value="dental">Dental clinic</option>
+        </select>
+      </div>
+
+      <!-- Client Business Name -->
+      <div class="form-group">
+        <label class="form-label">Company / Brand name</label>
+        <input type="text" class="form-input" id="business-name-input" value="Brightside Dental" placeholder="e.g. Acme Health">
+      </div>
+
+      <!-- Row: Agent Name & Brand Color -->
+      <div class="row-two-fields">
+        <div class="form-group">
+          <label class="form-label">Assistant identity</label>
+          <input type="text" class="form-input" id="agent-name-input" value="Mia" placeholder="e.g. Mia">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Brand accent</label>
+          <div class="color-picker-wrap">
+            <input type="color" class="color-input-native" id="brand-color-input" value="#00a884">
+            <span class="color-hex-text" id="brand-color-hex">#00A884</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Color Swatches -->
+      <div class="swatches-row">
+        <button class="color-swatch-btn" style="background:#00a884" data-color="#00a884" title="Emerald Teal"></button>
+        <button class="color-swatch-btn" style="background:#3b82f6" data-color="#3b82f6" title="Sapphire Blue"></button>
+        <button class="color-swatch-btn" style="background:#6366f1" data-color="#6366f1" title="Slate Indigo"></button>
+        <button class="color-swatch-btn" style="background:#06b6d4" data-color="#06b6d4" title="Nordic Cyan"></button>
+        <button class="color-swatch-btn" style="background:#f59e0b" data-color="#f59e0b" title="Amber Gold"></button>
+        <button class="color-swatch-btn" style="background:#ef4444" data-color="#ef4444" title="Crimson"></button>
+        <button class="color-swatch-btn" style="background:#ec4899" data-color="#ec4899" title="Luxury Rose"></button>
+        <button class="color-swatch-btn" style="background:#10b981" data-color="#10b981" title="Growth Green"></button>
+      </div>
+
+      <!-- Tone -->
+      <div class="form-group">
+        <label class="form-label">Conversational tone</label>
+        <input type="text" class="form-input" id="tone-input" value="Warm, calm and reassuring" placeholder="e.g. Concise, direct in 1-2 sentences">
+      </div>
+
+      <!-- Agent Goal -->
+      <div class="form-group">
+        <label class="form-label">Conversion objective</label>
+        <input type="text" class="form-input" id="agent-goal-input" value="Book a first visit or capture contact details" placeholder="e.g. Schedule consultation, capture email">
+      </div>
+
+      <!-- Pre-given Quick Questions Input -->
+      <div class="form-group">
+        <label class="form-label">
+          <span>Pre-given quick questions</span>
+          <span class="sub">Comma-separated</span>
+        </label>
+        <input type="text" class="form-input" id="quick-prompts-input" placeholder="e.g. How much is a cleaning?, What are your timings?, Can I book a visit?">
+      </div>
+
+      <!-- Knowledge Base -->
+      <div class="form-group" style="flex: 1; display: flex; flex-direction: column;">
+        <label class="form-label">
+          <span>Ground truth knowledge</span>
+          <span class="sub">Strict facts</span>
+        </label>
+        <textarea class="form-textarea" id="knowledge-base-textarea" placeholder="Paste hours, pricing, services, and operational policies..."></textarea>
+      </div>
+
+      <!-- Action Button -->
+      <button class="btn-apply" id="btn-apply-config">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>Apply & restart conversation</span>
+      </button>
+    </aside>
+
+    <!-- Column 2: LIVE PREVIEW & CHAT -->
+    <section class="preview-panel" id="preview-panel">
+      <div class="browser-window" id="browser-window-el">
+        <!-- Browser Header with Viewport Switcher -->
+        <div class="browser-header">
+          <div class="browser-dots">
+            <div class="browser-dot" style="background-color: #ef4444;"></div>
+            <div class="browser-dot" style="background-color: #eab308;"></div>
+            <div class="browser-dot" style="background-color: #22c55e;"></div>
+          </div>
+
+          <div class="browser-address-bar" id="browser-address-bar">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <span id="browser-domain-text">brightsidedental.com</span>
+          </div>
+
+          <!-- Desktop vs Mobile Viewport Switcher -->
+          <div class="viewport-toggle-wrap">
+            <button class="viewport-btn active" id="btn-view-desktop" title="Desktop View">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              <span>Desktop</span>
+            </button>
+            <button class="viewport-btn" id="btn-view-mobile" title="Mobile iPhone View">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+              <span>Mobile</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Simulated Website Body -->
+        <div class="client-site-body">
+          <!-- Top website context header -->
+          <div class="site-intro-header">
+            <div class="client-hero-badge" id="preview-hero-badge">Premier Care in Clifton</div>
+            <h1 class="client-hero-title" id="preview-hero-title">Gentle dentistry for the whole family</h1>
+            <p class="client-hero-subtitle" id="preview-hero-subtitle">Painless cleanings, laser whitening, invisible aligners and emergency care in Clifton, Karachi.</p>
+          </div>
+
+          <!-- Feature Cards Row -->
+          <div class="client-cards-row" id="preview-cards-container">
+            <!-- Dynamically populated rich service cards -->
+          </div>
+
+          <!-- Enlarged, Executive Chatbox Container -->
+          <div class="embedded-chat-box">
+            <div class="embedded-chat-header" id="chat-header">
+              <div class="chat-header-identity">
+                <div class="chat-avatar-circle" id="chat-avatar-letter">M</div>
+                <div class="chat-header-text-wrap">
+                  <div class="chat-header-title" id="chat-header-title">Mia at Brightside Dental</div>
+                  <div class="chat-header-subtitle">Direct Client Assistant</div>
+                </div>
+              </div>
+              <div class="chat-header-status">
+                <span class="pulse-dot-white"></span>
+                <span>Active</span>
+              </div>
+            </div>
+
+            <!-- Spacious Messages Area -->
+            <div class="chat-messages-container" id="chat-messages">
+              <!-- Dynamically populated bubbles -->
+            </div>
+
+            <!-- Quick Prompts Row (Always Visible Above Input) -->
+            <div class="quick-prompts-bar" id="quick-prompts-bar">
+              <div class="quick-prompts-row" id="quick-prompts-row">
+                <!-- Dynamically populated pills -->
+              </div>
+            </div>
+
+            <!-- Input Bar -->
+            <div class="chat-input-bar">
+              <input type="text" class="chat-input-field" id="chat-input-field" placeholder="Ask a question or request details..." autocomplete="off">
+              <button class="chat-send-btn" id="chat-send-btn" title="Send message">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Column 3: CAPTURED LEADS (Only Place with CSV Export) -->
+    <aside class="captured-leads-panel" id="captured-leads-panel">
+      <div class="panel-header-wrap">
+        <span class="panel-header-title">CAPTURED LEADS</span>
+        <button class="btn-export-csv" id="btn-export-csv-sidebar" title="Download Captured Leads as CSV">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Download CSV</span>
+        </button>
+      </div>
+
+      <!-- Counter Metrics -->
+      <div class="metrics-row">
+        <div class="metric-box">
+          <div class="metric-number" id="metric-chats">0</div>
+          <div class="metric-label">Conversations</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-number" id="metric-leads">0</div>
+          <div class="metric-label">Qualified Leads</div>
+        </div>
+      </div>
+
+      <!-- Leads List Box -->
+      <div class="leads-list-box" id="leads-list-box">
+        <div class="empty-leads-text">
+          No leads captured yet. Chat as a visitor and share contact details to see a verified lead record appear here.
+        </div>
+      </div>
+
+      <!-- Visitor Reset Action -->
+      <button class="btn-new-visitor" id="btn-new-visitor">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="1 4 1 10 7 10"></polyline>
+          <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+        </svg>
+        <span>Simulate new visitor session</span>
+      </button>
+
+      <button class="btn-clear-leads" id="btn-clear-leads">
+        Clear lead history
+      </button>
+
+      <div class="status-footer-note">
+        Real-time Knowledge Engine & Silent Lead Capture Active
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- Embed Code Modal with Framework Tabs -->
+  <div class="modal-overlay" id="embed-modal">
+    <div class="modal-content-card">
+      <div class="modal-top">
+        <h3>Client Website Integration</h3>
+        <button class="modal-close-btn" id="embed-modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-tabs">
+          <button class="modal-tab-btn active" data-tab="html">HTML Script</button>
+          <button class="modal-tab-btn" data-tab="react">React / Next.js</button>
+          <button class="modal-tab-btn" data-tab="wordpress">WordPress & Webflow</button>
+        </div>
+
+        <p style="font-size: 13px; color: var(--text-secondary);" id="embed-instruction-text">
+          Paste these 2 lines into the &lt;head&gt; or before &lt;/body&gt; of your client's website:
+        </p>
+
+        <pre class="code-box-display" id="embed-code-snippet"></pre>
+
+        <button class="btn-apply" id="btn-copy-embed-code">
+          Copy code to clipboard
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Transcript Inspection Drawer Modal -->
+  <div class="modal-overlay" id="transcript-modal">
+    <div class="modal-content-card">
+      <div class="modal-top">
+        <h3 id="transcript-modal-title">Conversation Transcript</h3>
+        <button class="modal-close-btn" id="transcript-modal-close">&times;</button>
+      </div>
+      <div class="modal-body" style="max-height: 420px; overflow-y: auto;">
+        <div id="transcript-messages-container" style="display: flex; flex-direction: column; gap: 10px;">
+          <!-- Loaded dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Toast Notifications Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="/static/agent-desk.js?v=2.2"></script>
+</body>
+</html>
